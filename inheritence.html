@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let count =0;
+        let activeMember = 0;
+        class User{
+           
+            constructor(username, email, password)
+            {
+                this.username = username;
+                this.email = email;
+                this.password = password;
+            }
+
+            register()
+            {
+                console.log( this.username+` registered successfully`);
+            }
+            registeredUser()
+            {
+                count++;
+                console.log(`Number of registered users : `+count);
+            }
+        } 
+
+        class Member extends User{
+            constructor(username, email, password,memberPackage,date){
+                super(username, email, password);
+                this.memberPackage = memberPackage;
+                this.date = new Date();
+                activeMember++;
+                console.log(`Active Members: `+activeMember);
+            }
+            getPackage(){
+                console.log(this.username+` subscribed to `+this.memberPackage);
+            }
+            membershipActiveTillDate(){
+                let d = this.date.getDate();
+                let mm = this.date.getMonth();
+               
+                this.date.setDate(d+30) ;
+                this.date.setMonth(mm+1) ; 
+                
+                console.log(this.username+ ` has active membership till `+this.date.getDate()+`-`+this.date.getMonth()+`-`+this.date.getFullYear());
+            }
+            renewMembership()
+            {
+                let d = this.date.getDate();
+                let mm = this.date.getMonth();
+                let y = this.date.getFullYear();
+                if(this.memberPackage == 'Standard')
+                {
+                    this.date.setDate(d+30) ;
+                    this.date.setMonth(mm+1) ; 
+                }   
+                else{
+                    this.date.setFullYear(y+1);
+                }
+                console.log("Membership Renewed! ");
+                console.log(this.username+ ` has active membership till `+this.date);
+            }
+            
+        }
+/*
+        let a = new User('prachi', 'p@gmail.com', 'xyz');
+        a.register();
+        a.registeredUser();
+        let b = new User('boy', 'b@gmail.com', 'ayz');
+        b.register();
+        b.registeredUser();
+*/
+        let m1 = new Member('m1', 'm1@gmail.com', 'xyz', 'Standard');
+       // m1.getPackage();
+        m1.membershipActiveTillDate();
+        let m2 = new Member('m2', 'm2@gmail.com', 'abc', 'Yearly');
+        m2.membershipActiveTillDate();
+        m2.renewMembership();
+    </script>
+</body>
+</html>
