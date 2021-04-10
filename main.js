@@ -41,9 +41,9 @@
 
 
 // const myForm = document.querySelector("#my-form");
- const nameInput = document.querySelector("#name");
- const emailInput = document.querySelector("#email");
- const msg = document.querySelector(".msg");
+  const nameInput = document.querySelector("#name");
+  const emailInput = document.querySelector("#email");
+//  const msg = document.querySelector(".msg");
 // const userList = document.querySelector("#users");
 
 // myForm.addEventListener('submit', (e)=>{
@@ -67,39 +67,44 @@
     
 // });
 
-let arr = ['abc', 'efg'];
+// let arr = ['abc', 'efg'];
 
-localStorage.setItem("Name", "Prachi");
-localStorage.setItem("Name2", "Payal");
-localStorage.setItem("Array", JSON.stringify(arr));
+// localStorage.setItem("Name", "Prachi");
+// localStorage.setItem("Name2", "Payal");
+// localStorage.setItem("Array", JSON.stringify(arr));
 
-//console.log(localStorage.getItem("Array"));
+// for(let i=0; i<localStorage.length; i++){
+//     const n  = localStorage.key(i);
+//     console.log(localStorage.getItem(n));
+// }
+
+//let count = 1;
+//let arr = [];
+
+btn.addEventListener('click', (e)=>{
+    //e.preventDefault();
+    //console.log(count);
+    //arr[0] = nameInput.value;
+    //arr[1] = emailInput.value;
+    localStorage.setItem(emailInput.value, nameInput.value);
+    //count++;
+});
+
 
 for(let i=0; i<localStorage.length; i++){
     const n  = localStorage.key(i);
-    console.log(localStorage.getItem(n));
+    console.log(`${n} `+localStorage.getItem(n));
 }
 
 
 
+
+
     
 
 
 
 
 
-// btn.addEventListener('click', (e)=>{
-//     e.defaultPrevented();
-//     // arr[0] = nameInput.value;
-//     // arr[1] =  emailInput.value;
-//     localStorage.setItem('1', JSON.stringify(arr));
-    
-// });
-
-// for(let i=1; i<count; i++){
-//     console.log(localStorage.getItem().key(i));
-// }
-//console.log(localStorage.getItem().key(0));
-//localStorage.clear();
 
 
