@@ -16,7 +16,8 @@
 // document.querySelector('.items').lastElementChild.style.color = "Blue";
 
 
- const btn = document.querySelector('.btn');
+ const btn = document.querySelector(".btn");
+ const editBtn = document.querySelector('.btn1');
 
 // //=> is a function
 // btn.addEventListener('click', (e)=> {
@@ -82,20 +83,18 @@
 //let arr = [];
 
 btn.addEventListener('click', (e)=>{
-    //e.preventDefault();
-    //console.log(count);
-    //arr[0] = nameInput.value;
-    //arr[1] = emailInput.value;
     localStorage.setItem(emailInput.value, nameInput.value);
-    //count++;
 });
 
-
-for(let i=0; i<localStorage.length; i++){
-    const n  = localStorage.key(i);
-    console.log(`${n} `+localStorage.getItem(n));
-}
-
+//To Edit
+editBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    console.log(1);
+    for(let i=0; i<localStorage.length; i++){
+        const n  = localStorage.key(i);
+        console.log(`${n} `+localStorage.getItem(n));
+    }
+});
 
 
 
